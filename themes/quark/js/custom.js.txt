@@ -1,0 +1,26 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const images = [
+    "user/pages/02.aboutus/images/about1.jpg",
+    "user/pages/02.aboutus/images/about2.jpg",
+    "user/pages/02.aboutus/images/about3.jpg"
+  ];
+  let index = 0;
+
+  const imgElement = document.getElementById("slideshow-img");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+
+  function showImage(i) {
+    index = (i + images.length) % images.length;
+    imgElement.style.opacity = 0;
+    setTimeout(() => {
+      imgElement.src = images[index];
+      imgElement.style.opacity = 1;
+    }, 300);
+  }
+
+  prevBtn.addEventListener("click", () => showImage(index - 1));
+  nextBtn.addEventListener("click", () => showImage(index + 1));
+
+  showImage(0);
+});

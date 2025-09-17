@@ -1,0 +1,16 @@
+state: enabled
+email: admin@example.com
+language: en
+fullname: 'Admin User'
+title: WeddingsSite
+hashed_password: $2y$10$1T0cHjya3qQZcY8YzAfXVO49yCtvIaZwfNdSfoO5tAM39ox9J6stO
+content_editor: default
+twofa_enabled: false
+twofa_secret: HEOUFN5H5D76KGTOIERHADBIKGE4IKTN
+avatar: {  }
+access:
+  site:
+    login: true
+  admin:
+    login: true
+    super: true

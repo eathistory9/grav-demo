@@ -1,0 +1,582 @@
+body.about .video-bg {
+    display: none;  /* ascunde video-ul de la homepage pe About Us */
+}
+
+body.about {
+    background: url('/user/pages/02.aboutus/images/nunta2.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+body.portfolio {
+    background: url('/user/pages/04.portfolio/images/nunta.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.about-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 80px 40px;
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    background: none; /* să nu mai suprascrie fundalul */
+}
+
+.about-text {
+  flex: none;
+  width: 550px; /* lățimea dorită */
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.about-text:hover {
+  transform: translateY(-5px); /* ridică chenarul */
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6); /* shadow mai accentuat */
+  border-color: rgba(255, 255, 255, 0.4); /* contur mai vizibil */
+}
+
+
+.about-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 6vw, 48px);
+  margin-bottom: 20px;
+  color: #fff; /* titlu alb */
+}
+.about-text p {
+  color: #fff; /* text alb */
+}
+
+.about-image {
+  flex: none;         /* nu limităm flex-ul */
+  width: 470px;       /* lățimea dorită pentru imagine */
+  max-width: 100%;    /* să nu depășească containerul */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.about-image img {
+  width: 100%;        /* să ocupe tot containerul */
+  height: auto;       /* păstrează proporțiile */
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05); /* efect de zoom ușor */
+}
+
+.about-image .slideshow {
+  position: relative;   /* asta fixează săgețile față de container */
+  width: 100%;
+  height: auto;
+}
+
+
+/* Hover - ridică și adaugă umbră */
+.about-image .slideshow img:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  z-index: 10;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+
+.btn-back {
+  position: fixed;
+  bottom: 80x;  
+  left: 20px;
+  z-index: 1000;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #D4AF37, #F0C75E);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  color: #111 !important;       /* text negru fix */
+  font-weight: 600;
+  text-decoration: none !important; /* elimină sublinierea */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Hover */
+.btn-back:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+  color: #111 !important;  /* forțează să rămână negru și la hover */
+  text-decoration: none !important; /* forțează să nu apară linia */
+}
+
+
+@keyframes gradientShift {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Accent titlu About Us */
+.about-text h1 {
+    color: #fff;
+    font-weight: 700; /* bold */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6); /* umbră pt contrast */
+    letter-spacing: 1px; /* spațiere elegantă */
+}
+
+/* Accent paragrafe About Us */
+.about-text p {
+    color: #fff;
+    font-weight: 500; /* puțin mai bold */
+    line-height: 1.6; /* mai aerisit */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Home page */
+/* --- GENERAL --- */
+* { box-sizing: border-box; margin:0; padding:0; }
+body, html { 
+  height: 100%; 
+  font-family: 'Inter', sans-serif; 
+  color: #fff; 
+  overflow: hidden;  /* elimină scroll complet */
+}
+
+/* --- VIDEO BACKGROUND --- */
+.video-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.5);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5) !important;
+  z-index: -1;
+}
+
+
+
+
+/* --- HERO --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+    /* Adaugăm alinierea verticală */
+    position: relative;
+    top: -130px;  /* mută conținutul 50px mai sus; ajustează după cum vrei */
+    text-align: center;  /* centrare orizontală */
+}
+
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; /* text mai gros */
+  font-size: clamp(32px, 6vw, 56px);
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.4);
+}
+
+/* --- BUTOANE --- */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #D4AF37, #F0C75E);
+  color: #111 !important; /* negru pentru text, păstrând toate efectele hover */
+  font-weight: 600;
+   text-decoration: none !important;  /* elimină linia */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.35s ease,
+              opacity 0.35s ease,
+              background 0.35s ease;
+  opacity: 0.95;
+  will-change: transform;
+}
+
+.btn-hero:hover {
+  transform: translateY(-8px) scale(1.06) rotateZ(0.5deg);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  opacity: 1;
+  background: linear-gradient(135deg, #FFD700, #F0E68C);
+}
+
+/* RESPONSIVE */
+@media (max-width:600px){
+  .hero h1 { font-size: clamp(28px, 8vw, 42px); }
+  .hero p { font-size: 16px; }
+  .btn-hero { padding: 10px 20px; font-size: 14px; }
+}
+
+-----------------------------------------------------------------
+/* ----------------------------- */
+/* PORTFOLIO BACKGROUND & STYLES */
+/* ----------------------------- */
+body.portfolio {
+    background: url('/user/pages/04.portfolio/images/nunta.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#body-wrapper {
+    position: relative; /* nu fixed */
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: none; /* elimină fundalul Portfolio */
+}
+body.portfolio::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: inherit;
+    filter: blur(3px);
+    z-index: -1;
+}
+#body-wrapper::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.25); /* semi-transparent negru */
+    z-index: 0;
+}
+
+
+.top-text {
+    margin-top: 40px;   /* distanța textului față de top */
+    text-align: center;
+    z-index: 10;
+    color: white;
+}
+
+.carousel-container {
+    flex: 1;                  /* ocupă spațiul rămas */
+    display: flex;
+    justify-content: center;  /* centru orizontal */
+    align-items: center;      /* centru vertical */
+}
+
+
+
+/* Overlay blur subtil */
+body.portfolio::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: inherit;
+    filter: blur(3px); /* ajustează intensitatea blur-ului dacă vrei */
+    z-index: -1;
+}
+
+/* Carousel container */
+body.portfolio .carousel {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1000px;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Scoate top:50% și transform translateY */
+}
+
+
+/* Track pentru videoclipuri */
+body.portfolio .carousel-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(.22,.9,.28,1);
+}
+
+/* Carduri */
+body.portfolio .carousel-card {
+    flex: 0 0 auto;
+    margin: 0 20px;
+    opacity: 0.6;
+    transform: scale(0.92);
+    transition: transform .35s ease, opacity .35s ease;
+}
+
+body.portfolio .carousel-card.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Videoclip */
+body.portfolio .carousel-card video {
+    width: 100%;
+    max-width: 640px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.55);
+    border: 2px solid rgba(255,255,255,0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+body.portfolio .carousel-card:hover video {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.65);
+}
+
+/* Prev/Next Buttons */
+body.portfolio #prevBtn, body.portfolio #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    border: none;
+    font-size: 26px;
+    line-height: 54px;
+    text-align: center;
+    background: rgba(255,255,255,0.9);
+    color: #222;
+    cursor: pointer;
+    z-index: 2000;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+body.portfolio #prevBtn { left: 12px; }
+body.portfolio #nextBtn { right: 12px; }
+body.portfolio #prevBtn:hover, body.portfolio #nextBtn:hover { transform: translateY(-50%) scale(1.03); }
+
+/* Back button */
+.btn-back {
+  position: fixed;
+  bottom: 80px;  
+  left: 20px;
+  z-index: 1000;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #D4AF37, #F0C75E);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  color: #111 !important;       /* text negru fix */
+  font-weight: 600;
+  text-decoration: none !important; /* elimină sublinierea */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Hover */
+.btn-back:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+  color: #111 !important;  /* forțează să rămână negru și la hover */
+  text-decoration: none !important; /* forțează să nu apară linia */
+}
+
+
+@keyframes gradientShift {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Forțăm titlul mare de sus pe Portfolio să fie alb */
+body.portfolio .top-text h1,
+body.portfolio .top-text h2 {
+    color: #fff !important;
+}
+/* Accentuează textele din partea de sus pe Portfolio */
+body.portfolio .top-text h1 {
+    color: #fff !important;
+    font-weight: 700; /* bold */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6); /* umbră pentru contrast */
+}
+
+body.portfolio .top-text h2 {
+    color: #fff !important;
+    font-weight: 600; /* puțin mai subțire decât H1 */
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.5);
+}
+
+/* ----------------------------- */
+/* CONTACT US BACKGROUND & STYLES */
+/* ----------------------------- */
+/* Fundal Contact Us */
+/* Fundal Contact Us */
+/* Fundal specific Contact */
+body.home .video-bg { display: block; }
+body.contact .video-bg { display: none; } /* ca să nu preia video-ul de pe Home */
+
+body.contact {
+    background: url('/user/pages/03.contact/images/nunta3.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+/* Wrapper formular */
+.contact-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    background: rgba(0,0,0,0.55);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+    margin: 80px auto;
+}
+
+/* Titlu și subtitlu */
+.contact-left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+.contact-left p.subtitle {
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 40px;
+    font-size: 18px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+/* Inputuri și textarea */
+.contact-form input,
+.contact-form textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.6);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* Buton Submit */
+.btn-submit {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.6);
+    color: #fff;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+.btn-submit:hover {
+    background: linear-gradient(135deg, #D4AF37, #F0C75E);
+    color: #111;
+    border: none;
+}
+
+/* Back Button */
+.btn-back {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #D4AF37, #F0C75E);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+}
+.btn-back:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+@keyframes gradientShift {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+}
+
+/* Responsiv */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+.contact-right h3 {
+    color: #fff; /* text alb */
+    font-weight: 700; /* dacă vrei să fie mai accentuat */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5); /* opțional pentru vizibilitate */
+}
+
+
+

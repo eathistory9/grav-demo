@@ -1,0 +1,16 @@
+<video autoplay muted loop playsinline class="video-bg">
+    <source src="{{ page.header.video }}" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<header class="hero">
+  <div class="hero-content">
+    <h1>{{ page.header.hero_title }}</h1>
+    <p>{{ page.header.hero_subtitle }}</p>
+    <div class="hero-buttons">
+      {% for button in page.header.hero_buttons %}
+        <a href="{{ button.link }}" class="btn-hero">{{ button.text }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,4 @@
+name: MyTheme
+version: 1.0.0
+author: "Tu"
+description: "Tema personalizată pentru site"

@@ -1,0 +1,16 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="user/pages/01.home/video/nunta1.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay" style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.65); z-index:-1;"></div>
+
+  {{ page.content|raw }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% do assets.addCss('theme://custom.css') %}
+{% endblock %}
