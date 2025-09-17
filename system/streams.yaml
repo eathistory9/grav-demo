@@ -1,0 +1,16 @@
+schemes:
+  plugins:
+    type: ReadOnlyStream
+    prefix: user/plugins
+  themes:
+    type: ReadOnlyStream
+    prefix: user/themes
+  cache:
+    type: ReadWriteStream
+    prefix: cache
+  accounts:
+    type: ReadWriteStream
+    prefix: accounts
+  images:
+    type: ReadWriteStream
+    prefix: images
