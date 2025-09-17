@@ -1,18 +1,28 @@
 FROM php:8.2-apache
 
-# Instalează extensiile de care are nevoie Grav
+# Install dependencies
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
     unzip \
-    libpng-dev \
+    libzip-dev \
     libicu-dev \
-    && docker-php-ext-install zip gd intl
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd intl zip
 
-# Copiază toate fișierele proiectului în container
+# Enable Apache rewrite
+RUN a2enmod rewrite
+
+# Copy Grav files
 COPY . /var/www/html/
 
-WORKDIR /var/www/html/
+# Set working directory
+WORKDIR /var/www/html
 
-EXPOSE 10000
+# Permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
 
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "."]
+# Start Grav using PHP built-in server with router
+CMD ["php", "-S", "0.0.0.0:10000", "system/router.php"]
